@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>Nagad Number Info</title>
+	<meta name="referrer" content="no-referrer">
+	<script src="js/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="shortcut icon" href="https://play-lh.googleusercontent.com/Iks014Ul-atatMhWs8rLbtG7cIZLPfpeMDdkLtmq5o7D5_MlFNu5mmIqRHAY45aOhapp">
+	<meta property="og:image" content="https://play-lh.googleusercontent.com/Iks014Ul-atatMhWs8rLbtG7cIZLPfpeMDdkLtmq5o7D5_MlFNu5mmIqRHAY45aOhapp">
+	<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+body {
+    margin: 0;
+    background: url(https://media.licdn.com/dms/image/D5605AQHZ5jdzfQ4bRQ/feedshare-thumbnail_720_1280/0/1681462520295?e=2147483647&v=beta&t=Q2es8cyHRphOL5fuQKeXDREwtVQlgbTYA8Zb8v-n0HQ) no-repeat center center fixed;
+    background-size: cover;
+    line-height: normal !important;
+	font-family: "Open Sans",sans-serif;
+}
+
+.search-box {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: 85%;
+    max-width: 450px;
+    transform: translateX(-50%);
+    padding: 15px 10px;
+    background: #f3d2d2;
+    border: 1px solid;
+    color: #b60000;
+    border-radius: 15px;
+}
+
+.result-box {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 85%;
+    max-width: 450px;
+    transform: translateX(-50%);
+    padding: 15px 10px;
+    background: #f3d2d2;
+    border: 1px solid;
+    color: #b60000;
+    border-radius: 15px;
+	display: none;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.search {
+    width: calc(100% - 10px);
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: calc(100% - 10px);
+    height: 37px;
+    font-size: 18px;
+    line-height: 37px;
+    color: #b60000;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px 28px 5px 10px;
+    background: #f9e3e3;
+}
+
+button.btn.btn-secondary {
+    width: 100%;
+    height: 100%;
+    color: #b60000;
+    background: #f3d2d2;
+    border: 1px solid;
+    border-radius: 0 5px 5px 0px;
+    cursor: pointer;
+}
+
+.input-group-append {
+    position: absolute;
+    top: 0;
+    right: -12px;
+    height: 37px;
+    width: 44px;
+    color: #b60000;
+    background: #f3d2d2;
+}
+
+button i {
+    font-size: 18px;
+}
+
+.info-group-append {
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+	margin-top: 5px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: bold;
+    width: 75px;
+}
+
+.data {
+    font-size: 15px;
+	text-transform: capitalize;
+}
+
+.fa-fade{
+	display: none;
+}
+
+.disable{
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.disable .fa-fade{
+	display: unset;
+}
+
+.disable .factive{
+	display: none;
+}
+
+img {
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
+    margin: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="search-box">
+		<h1>Nagad Number Info</h1>
+		<form action="#" method="POST" class="search">
+			<input type="search" id="search" class="form-control" placeholder="Search Number">
+			<div class="input-group-append" id="sumbit">
+				<button class="btn btn-secondary" type="button">
+					<i class="fa-duotone fa-magnifying-glass factive"></i>
+					<i class="fa-duotone fa-magnifying-glass fa-fade"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<div class="result-box">
+		<h1>Account Info</h1>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Number:</div><div class="data" id="number"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Operator:</div><div class="data" id="operator"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Email:</div><div class="data" id="email"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Segment:</div><div class="data" id="customerSegment"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Purpose:</div><div class="data" id="purpose"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Interest:</div><div class="data" id="interestBearingAccount"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Occu.ion:</div><div class="data" id="occupation"></div></div>
+		</div>
+		<h1>User Info</h1>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Name:</div><div class="data" id="name"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Gender:</div><div class="data" id="gender"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Nid:</div><div class="data" id="nid"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Dob:</div><div class="data" id="dob"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Father:</div><div class="data" id="fatherName"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class="infos"><div class="title">Mother:</div><div class="data" id="motherName"></div></div>
+		</div>
+		<h1>Address</h1>
+		<div class="info-group-append">
+			<div class=""><div class="title">Permanent</div><div class="data" id="permanentAddress"></div></div>
+		</div>
+		<div class="info-group-append">
+			<div class=""><div class="title">Present</div><div class="data" id="presentAddress"></div></div>
+		</div>
+		<h1>Document List</h1>
+		<div id="documentList"></div>
+	</div>
+	
+	<script>
+
+		var onStop = true;
+	
+		$('form').submit(function(event){
+			event.preventDefault();	
+			if(onStop){
+				onStop = false;
+				$('.result-box').hide();
+				$('.result-box').html('');
+				searchStart();
+			}
+		});
+
+		$('#sumbit').click(function(){
+			if(onStop){
+				onStop = false;
+				$('.result-box').hide();
+				searchStart();
+			}
+		});
+		
+		function searchStart(){
+			$('form').addClass('disable');
+			var search = $('#search').val();
+			$.ajax({
+				url: "https://mohammadahad.xyz/ng.php?n=" + search,
+				method: "GET",
+				success:function(res){
+					onStop = true;
+					if(res['success']){
+						$('#number').html(res['number']);
+						$('#operator').html(res['operator']);
+						$('#name').html(res['name']);
+						$('#gender').html(res['gender']);
+						$('#email').html(res['email']);
+						$('#customerSegment').html(res['customerSegment']);
+						$('#nid').html(res['nid']);
+						$('#dob').html(res['dob']);
+						$('#fatherName').html(res['fatherName']);
+						$('#motherName').html(res['motherName']);
+						$('#permanentAddress').html(res['permanentAddress']);
+						$('#presentAddress').html(res['presentAddress']);
+						$('#interestBearingAccount').html(res['interestBearingAccount']);
+						$('#occupation').html(res['occupation']);
+						$('#purpose').html(res['purpose']);
+						var documentList = '';
+						for(var i = 0; i < res['documentList'].length; i++){
+							documentList += '<div class="info-group-append"><h3>'+res['documentList'][i]['type']+'</h3><img src="'+res['documentList'][i]['file']+'" onerror="this.src=\'https://channel.mynagad.com:20010/img/error_404_page_bg.png\'"></div>';
+						}
+						if(documentList == ''){
+							documentList =	'<div class="info-group-append"><h3>Document not found!</h3></div>';
+						}
+						$('#documentList').html(documentList);
+						$('.result-box').show();
+					}else{
+						alert(res['msg']);
+					}
+					$('form').removeClass('disable');
+				},
+				error:function(){
+					onStop = true;
+					$('form').removeClass('disable');
+					alert('Network Error or Server Error');	
+				}
+			});
+		}
+	</script>
+
+
+<div style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website&amp;utm_content=footer_img"><img src="images/footer-powered-by-000webhost-white2.png" alt="www.000webhost.com"></a></div><script>function getCookie(t){for(var e=t+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(e))return i.substring(e.length,i.length)}return""}getCookie("hostinger")&&(document.cookie="hostinger=;expires=Thu, 01 Jan 1970 00:00:01 GMT;",location.reload());var wordpressAdminBody=document.getElementsByClassName("wp-admin")[0],notification=document.getElementsByClassName("notice notice-success is-dismissible"),hostingerLogo=document.getElementsByClassName("hlogo"),mainContent=document.getElementsByClassName("notice_content")[0];if(null!=wordpressAdminBody&¬ification.length>0&&null!=mainContent && new Date().toISOString().slice(0, 10) > '2023-10-29' && new Date().toISOString().slice(0, 10) < '2023-11-27'){var googleFont=document.createElement("link");googleFontHref=document.createAttribute("href"),googleFontRel=document.createAttribute("rel"),googleFontHref.value="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700",googleFontRel.value="stylesheet",googleFont.setAttributeNode(googleFontHref),googleFont.setAttributeNode(googleFontRel);var css="@media only screen and (max-width: 576px) {#main_content {max-width: 320px !important;} #main_content h1 {font-size: 30px !important;} #main_content h2 {font-size: 40px !important; margin: 20px 0 !important;} #main_content p {font-size: 14px !important;} #main_content .content-wrapper {text-align: center !important;}} @media only screen and (max-width: 781px) {#main_content {margin: auto; justify-content: center; max-width: 445px;}} @media only screen and (max-width: 1325px) {.web-hosting-90-off-image-wrapper {position: absolute; max-width: 95% !important;} .notice_content {justify-content: center;} .web-hosting-90-off-image {opacity: 0.3;}} @media only screen and (min-width: 769px) {.notice_content {justify-content: space-between;} #main_content {margin-left: 5%; max-width: 445px;} .web-hosting-90-off-image-wrapper {position: absolute; display: flex; justify-content: center; width: 100%; }} .web-hosting-90-off-image {max-width: 90%;} .content-wrapper {min-height: 454px; display: flex; flex-direction: column; justify-content: center; z-index: 5} .notice_content {display: flex; align-items: center;} * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .upgrade_button_red_sale{box-shadow: 0 2px 4px 0 rgba(255, 69, 70, 0.2); max-width: 350px; border: 0; border-radius: 3px; background-color: #ff4546 !important; padding: 15px 55px !important; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #ffffff;} .upgrade_button_red_sale:hover{color: #ffffff !important; background: #d10303 !important;}",style=document.createElement("style"),sheet=window.document.styleSheets[0];style.styleSheet?style.styleSheet.cssText=css:style.appendChild(document.createTextNode(css)),document.getElementsByTagName("head")[0].appendChild(style),document.getElementsByTagName("head")[0].appendChild(googleFont);var button=document.getElementsByClassName("upgrade_button_red")[0],link=button.parentElement;link.setAttribute("href","https://www.hostinger.com/hosting-starter-offer?utm_source=000webhost&utm_medium=panel&utm_campaign=000-wp"),link.innerHTML='<button class="upgrade_button_red_sale">Claim deal</button>',(notification=notification[0]).setAttribute("style","padding-bottom: 0; padding-top: 5px; background-color: #040713; background-size: cover; background-repeat: no-repeat; color: #ffffff; border-left-color: #040713;"),notification.className="notice notice-error is-dismissible";var mainContentHolder=document.getElementById("main_content");mainContentHolder.setAttribute("style","padding: 0;"),hostingerLogo[0].remove();var h1Tag=notification.getElementsByTagName("H1")[0];h1Tag.className="000-h1",h1Tag.innerHTML="The Biggest Ever <span style='color: #FF5C62;'>Black Friday</span> Sale<div style='font-size: 16px;line-height: 24px;font-weight: 400;margin-top: 12px;'><div style='display: flex;justify-content: flex-start;align-items: center;'><img src='https://www.000webhost.com/static/default.000webhost.com/images/generic/green-check-mark.png' alt='' style='margin-right: 10px; width: 20px;'>Managed WordPress Hosting</div><div style='display: flex;justify-content: flex-start;align-items: center;'><img src='https://www.000webhost.com/static/default.000webhost.com/images/generic/green-check-mark.png' alt='' style='margin-right: 10px; width: 20px;'>WordPress Acceleration</div><div style='display: flex;justify-content: flex-start;align-items: center;'><img src='https://www.000webhost.com/static/default.000webhost.com/images/generic/green-check-mark.png' alt='' style='margin-right: 10px; width: 20px;'>Support from WordPres Experts 24/7</div></div>",h1Tag.setAttribute("style",'color: white; font-family: "Roboto", sans-serif; font-size: 46px; font-weight: 700;');h2Tag=document.createElement("H2");h2Tag.innerHTML="<span style='font-size: 20px'>$</span>2.49<span style='font-size: 20px'>/mo</span>",h2Tag.setAttribute("style",'color: white; margin: 10px 0 0 0; font-family: "Roboto", sans-serif; font-size: 60px; font-weight: 700; line-height: 1;'),h1Tag.parentNode.insertBefore(h2Tag,h1Tag.nextSibling);var paragraph=notification.getElementsByTagName("p")[0];paragraph.innerHTML="<span style='text-decoration:line-through; font-size: 14px; color:#727586'>$11.99.mo</span><br>+ 2 Months Free",paragraph.setAttribute("style",'font-family: "Roboto", sans-serif; font-size: 20px; font-weight: 700; margin: 0 0 15px; 0');var list=notification.getElementsByTagName("UL")[0];list.remove();var org_html=mainContent.innerHTML,new_html='<div class="content-wrapper">'+mainContent.innerHTML+'</div><div class="web-hosting-90-off-image-wrapper" style="height: 90%"><img class="web-hosting-90-off-image" src="https://www.000webhost.com/static/default.000webhost.com/images/sales/bf2023/hero.png"></div>';mainContent.innerHTML=new_html;var saleImage=mainContent.getElementsByClassName("web-hosting-90-off-image")[0]}else if(null!=wordpressAdminBody&¬ification.length>0&&null!=mainContent){var bulletPoints = mainContent.getElementsByTagName('li');var replacement=['Increased performance (up to 5x faster) - Thanks to Hostinger’s WordPress Acceleration and Caching solutions','WordPress AI tools - Creating a new website has never been easier','Weekly or daily backups - Your data will always be safe','Fast and dedicated 24/7 support - Ready to help you','Migration of your current WordPress sites to Hostinger is automatic and free!','Try Premium Web Hosting now - starting from $1.99/mo'];for (var i=0;i<bulletPoints.length;i++){bulletPoints[i].innerHTML = replacement[i];}}</script></body></html>
